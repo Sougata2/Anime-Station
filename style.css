@@ -1,0 +1,32 @@
+.col{
+    margin: 2rem auto;
+}
+.card{
+    margin: auto;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+#link{
+    position: absolute;
+    bottom: 1rem;
+}
+.card-text{
+    font-weight: bold;
+}
+.navbar-brand{
+    font-family: 'Neucha', cursive;
+    font-size: 2rem;
+}
+.nav-item{
+    font-size: 1.15rem;
+}
+#page-scroll-bar{
+    margin: 2rem auto;
+    text-align: center;
+}
+#page-scroll-bar button{
+    margin: 1rem;
+}
+.hidden{
+    display: none;
+}
+

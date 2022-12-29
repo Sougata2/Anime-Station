@@ -10,6 +10,9 @@ const options = {
 	}
 };
 
+function setPageNumber(page){
+    document.querySelector('#show-page-no').textContent = page;
+}
 function pageLimiter(page){
     if (page < 2){
         previousBtn.classList.add('hidden')
@@ -32,6 +35,7 @@ previousBtn.addEventListener('click', function(event){
     event.preventDefault()
     pageNumber--;
     pageLimiter(pageNumber)
+    setPageNumber(pageNumber)
     fetch(`https://gogoanime2.p.rapidapi.com/recent-release?type=1&page=${pageNumber}`, options)
 	.then(response => response.json())
 	.then(response => {
@@ -57,6 +61,7 @@ nextBtn.addEventListener('click', function(event){
     event.preventDefault()
     pageNumber++;
     pageLimiter(pageNumber)
+    setPageNumber(pageNumber)
     fetch(`https://gogoanime2.p.rapidapi.com/recent-release?type=1&page=${pageNumber}`, options)
 	.then(response => response.json())
 	.then(response => {
@@ -86,6 +91,7 @@ fetch(`https://gogoanime2.p.rapidapi.com/recent-release?type=1&page=${pageNumber
 	.then(response => {
         console.log(response)
         pageLimiter(pageNumber)
+        setPageNumber(pageNumber)
         for (let i = 0 ; i < response.length; i++){
             // populating the image
             document.querySelector(`.img-${i}`).src = response[i].animeImg

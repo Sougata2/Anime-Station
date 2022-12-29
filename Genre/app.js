@@ -12,16 +12,15 @@ const options = {
 	}
 };
 
-searchBtn.addEventListener('click', function(){
-    pageNumber = 1;
-    genereType = document.querySelector('#select-genre').value;
-    fetch(`https://gogoanime2.p.rapidapi.com/genre/${genereType}?page=${pageNumber}`, options)
-	.then(response => response.json())
-	.then(response => {
-        console.log(response)
-        pageLimiter(pageNumber)
-        setPageNumber(pageNumber)
-        for (let i = 0 ; i < response.length; i++){
+function populateCards(response){
+    for (let i = 0; i < 20; i++){
+        if (i >= response.length){
+            document.querySelector(`.c-${i}`).classList.add('hidden')
+        }
+        else{
+            if (document.querySelector(`.c-${i}`).classList.contains('hidden')){
+                document.querySelector(`.c-${i}`).classList.remove('hidden')
+            }
             // populating the image
             document.querySelector(`.img-${i}`).src = response[i].animeImg
             //populating the title
@@ -32,9 +31,28 @@ searchBtn.addEventListener('click', function(){
             //populating the anime link
             document.querySelector(`.anime-link-${i}`).href = response[i].animeUrl
         }
+    }
+}
 
+function emptyAlert(){
+    alert("End of Secition!")
+}
+
+searchBtn.addEventListener('click', function(){
+    pageNumber = 1;
+    genereType = document.querySelector('#select-genre').value;
+    fetch(`https://gogoanime2.p.rapidapi.com/genre/${genereType}?page=${pageNumber}`, options)
+	.then(response => response.json())
+	.then(response => {
+        console.log(response)
+        pageLimiter(pageNumber)
+        setPageNumber(pageNumber)
+        populateCards(response)
     })
-	.catch(err => console.error(err));
+	.catch(err => {
+        emptyAlert()
+        console.error(err)
+    });
 })
 
 function setPageNumber(page){
@@ -68,20 +86,12 @@ previousBtn.addEventListener('click', function(event){
 	.then(response => response.json())
 	.then(response => {
         console.log(response)
-        for (let i = 0 ; i < response.length; i++){
-            // populating the image
-            document.querySelector(`.img-${i}`).src = response[i].animeImg
-            //populating the title
-            document.querySelector(`.title-${i}`).textContent = response[i].animeTitle
-            ///populating the released date
-            document.querySelector(`.released-date-${i}`).textContent = `Released Date : ${response[i].releasedDate}`
-            
-            //populating the anime link
-            document.querySelector(`.anime-link-${i}`).href = response[i].animeUrl
-        }
-
+        populateCards(response)
     })
-	.catch(err => console.error(err));
+	.catch(err => {
+        emptyAlert()
+        console.error(err)
+    });
     window.scrollTo(0, 0)
 })
 nextBtn.addEventListener('click', function(event){
@@ -93,20 +103,12 @@ nextBtn.addEventListener('click', function(event){
 	.then(response => response.json())
 	.then(response => {
         console.log(response)
-        for (let i = 0 ; i < response.length; i++){
-            // populating the image
-            document.querySelector(`.img-${i}`).src = response[i].animeImg
-            //populating the title
-            document.querySelector(`.title-${i}`).textContent = response[i].animeTitle
-            //populating the released date
-            document.querySelector(`.released-date-${i}`).textContent = `Released Date : ${response[i].releasedDate}`
-            
-            //populating the anime link
-            document.querySelector(`.anime-link-${i}`).href = response[i].animeUrl
-        }
-
+        populateCards(response)
     })
-	.catch(err => console.error(err));
+	.catch(err => {
+        emptyAlert()
+        console.error(err)
+    });
     window.scrollTo(0, 0)
 })
 
@@ -118,17 +120,9 @@ fetch(`https://gogoanime2.p.rapidapi.com/genre/${genereType}?page=${pageNumber}`
         console.log(response)
         pageLimiter(pageNumber)
         setPageNumber(pageNumber)
-        for (let i = 0 ; i < response.length; i++){
-            // populating the image
-            document.querySelector(`.img-${i}`).src = response[i].animeImg
-            //populating the title
-            document.querySelector(`.title-${i}`).textContent = response[i].animeTitle
-            //populating the released date
-            document.querySelector(`.released-date-${i}`).textContent = `Released Date : ${response[i].releasedDate}`
-            
-            //populating the anime link
-            document.querySelector(`.anime-link-${i}`).href = response[i].animeUrl
-        }
-
+        populateCards(response)
     })
-	.catch(err => console.error(err));
+	.catch(err => {
+        emptyAlert()
+        console.error(err)
+    });

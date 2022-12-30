@@ -61,67 +61,88 @@
               <a class="nav-link" href="../Popular/index.html">Popular</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="../Genre/index.html">Genres</a>
+              <a class="nav-link active" href="#">Genres</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Movies</a>
+              <a class="nav-link" href="../SearchAnime/index.html"
+                >Anime <i class="fa-solid fa-magnifying-glass"></i
+              ></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Details</a>
+              <a class="nav-link" href="../SearchMovie/index.html"
+                >Movies <i class="fa-solid fa-magnifying-glass"></i
+              ></a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
     <!-- Select Genre -->
-    <div class="container py-5" style="display: flex; justify-content: center;">
-        <select id="select-genre" class="form-select" aria-label="Default select example" style="width: 20rem; display: inline; vertical-align: middle; margin: 5px;">
-            <option selected>Select Genre</option>
-            <option value="action">Action</option>
-            <option value="adventure">Adventure</option>
-            <option value="cars">Cars</option>
-            <option value="crime">Crime</option>
-            <option value="dementia">Dementia</option>
-            <option value="demons">Demons</option>
-            <option value="dub">Dub</option>
-            <option value="ecchi">Ecchi</option>
-            <option value="family">Family</option>
-            <option value="fantasy">Fantasy</option>
-            <option value="game">Game</option>
-            <option value="gourmet">Gourmet</option>
-            <option value="harem">Harem</option>
-            <!-- <option value="hentai">Hentai</option> -->
-            <option value="historical">Historical</option>
-            <option value="horror">Horror</option>
-            <option value="josei">Josei</option>
-            <option value="kids">Kids</option>
-            <option value="magic">Magic</option>
-            <option value="martial-arts">Martial Arts</option>
-            <option value="mecha">Mecha</option>
-            <option value="military">Military</option>
-            <!-- <option value="mmusic">Mmusic</option> -->
-            <option value="mystery">Mystery</option>
-            <option value="parody">Parody</option>
-            <option value="police">Police</option>
-            <option value="psychological">Psychological</option>
-            <option value="romance">Romance</option>
-            <option value="samurai">Samurai</option>
-            <option value="school">School</option>
-            <option value="sci-fi">Sci-Fi</option>
-            <option value="seinen">Seinen</option>
-            <option value="shoujo">Shoujo</option>
-            <option value="shoujo-ai">Shoujo Ai</option>
-            <option value="shounen">Shounen</option>
-            <option value="shounen-ai">Shounen Ai</option>
-            <!-- <option value="Slice-of-Life">Slice of Life</option> -->
-            <option value="space">Space</option>
-            <option value="sports">Sports</option>
-            <option value="super-power">Super Power</option>
-            <option value="supernatural">Supernatural</option>
-            <option value="suspense">Suspense</option>
-            <option value="thriller">Thriller</option>   
-        </select>
-        <button id="search-genre" type="button" class="btn btn-outline-primary" style="display: inline-block; vertical-align: middle; margin: 5px;"><i class="fa-solid fa-magnifying-glass"></i></button>
+    <div class="container py-5" style="display: flex; justify-content: center">
+      <select
+        id="select-genre"
+        class="form-select"
+        aria-label="Default select example"
+        style="
+          width: 20rem;
+          display: inline;
+          vertical-align: middle;
+          margin: 5px;
+        "
+      >
+        <option selected>Select Genre</option>
+        <option value="action">Action</option>
+        <option value="adventure">Adventure</option>
+        <option value="cars">Cars</option>
+        <option value="crime">Crime</option>
+        <option value="dementia">Dementia</option>
+        <option value="demons">Demons</option>
+        <option value="dub">Dub</option>
+        <option value="ecchi">Ecchi</option>
+        <option value="family">Family</option>
+        <option value="fantasy">Fantasy</option>
+        <option value="game">Game</option>
+        <option value="gourmet">Gourmet</option>
+        <option value="harem">Harem</option>
+        <!-- <option value="hentai">Hentai</option> -->
+        <option value="historical">Historical</option>
+        <option value="horror">Horror</option>
+        <option value="josei">Josei</option>
+        <option value="kids">Kids</option>
+        <option value="magic">Magic</option>
+        <option value="martial-arts">Martial Arts</option>
+        <option value="mecha">Mecha</option>
+        <option value="military">Military</option>
+        <!-- <option value="mmusic">Mmusic</option> -->
+        <option value="mystery">Mystery</option>
+        <option value="parody">Parody</option>
+        <option value="police">Police</option>
+        <option value="psychological">Psychological</option>
+        <option value="romance">Romance</option>
+        <option value="samurai">Samurai</option>
+        <option value="school">School</option>
+        <option value="sci-fi">Sci-Fi</option>
+        <option value="seinen">Seinen</option>
+        <option value="shoujo">Shoujo</option>
+        <option value="shoujo-ai">Shoujo Ai</option>
+        <option value="shounen">Shounen</option>
+        <option value="shounen-ai">Shounen Ai</option>
+        <!-- <option value="Slice-of-Life">Slice of Life</option> -->
+        <option value="space">Space</option>
+        <option value="sports">Sports</option>
+        <option value="super-power">Super Power</option>
+        <option value="supernatural">Supernatural</option>
+        <option value="suspense">Suspense</option>
+        <option value="thriller">Thriller</option>
+      </select>
+      <button
+        id="search-genre"
+        type="button"
+        class="btn btn-outline-primary"
+        style="display: inline-block; vertical-align: middle; margin: 5px"
+      >
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
     </div>
 
     <!-- anime cards -->
@@ -138,7 +159,12 @@
             <div class="card-body">
               <h5 class="card-title title-0">Card title</h5>
               <p class="card-text released-date-0"></p>
-              <a href="#" id="link" class="btn btn-primary anime-link-0" target="_blank" rel="noopener noreferrer"
+              <a
+                href="#"
+                id="link"
+                class="btn btn-primary anime-link-0"
+                target="_blank"
+                rel="noopener noreferrer"
                 >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
               ></a>
             </div>
@@ -155,7 +181,13 @@
             <div class="card-body">
               <h5 class="card-title title-1">Card title</h5>
               <p class="card-text released-date-1"></p>
-              <a href="#" id="link" class="btn btn-primary anime-link-1" target="_blank" rel="noopener noreferrer"                >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
+              <a
+                href="#"
+                id="link"
+                class="btn btn-primary anime-link-1"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
               ></a>
             </div>
           </div>
@@ -171,7 +203,13 @@
             <div class="card-body">
               <h5 class="card-title title-2">Card title</h5>
               <p class="card-text released-date-2"></p>
-              <a href="#" id="link" class="btn btn-primary anime-link-2" target="_blank" rel="noopener noreferrer"                >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
+              <a
+                href="#"
+                id="link"
+                class="btn btn-primary anime-link-2"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
               ></a>
             </div>
           </div>
@@ -187,7 +225,13 @@
             <div class="card-body">
               <h5 class="card-title title-3">Card title</h5>
               <p class="card-text released-date-3"></p>
-              <a href="#" id="link" class="btn btn-primary anime-link-3" target="_blank" rel="noopener noreferrer"                >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
+              <a
+                href="#"
+                id="link"
+                class="btn btn-primary anime-link-3"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
               ></a>
             </div>
           </div>
@@ -203,7 +247,13 @@
             <div class="card-body">
               <h5 class="card-title title-4">Card title</h5>
               <p class="card-text released-date-4"></p>
-              <a href="#" id="link" class="btn btn-primary anime-link-4" target="_blank" rel="noopener noreferrer"                >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
+              <a
+                href="#"
+                id="link"
+                class="btn btn-primary anime-link-4"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
               ></a>
             </div>
           </div>
@@ -219,7 +269,13 @@
             <div class="card-body">
               <h5 class="card-title title-5">Card title</h5>
               <p class="card-text released-date-5"></p>
-              <a href="#" id="link" class="btn btn-primary anime-link-5" target="_blank" rel="noopener noreferrer"                >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
+              <a
+                href="#"
+                id="link"
+                class="btn btn-primary anime-link-5"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
               ></a>
             </div>
           </div>
@@ -235,7 +291,13 @@
             <div class="card-body">
               <h5 class="card-title title-6">Card title</h5>
               <p class="card-text released-date-6"></p>
-              <a href="#" id="link" class="btn btn-primary anime-link-6" target="_blank" rel="noopener noreferrer"                >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
+              <a
+                href="#"
+                id="link"
+                class="btn btn-primary anime-link-6"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
               ></a>
             </div>
           </div>
@@ -251,7 +313,13 @@
             <div class="card-body">
               <h5 class="card-title title-7">Card title</h5>
               <p class="card-text released-date-7"></p>
-              <a href="#" id="link" class="btn btn-primary anime-link-7" target="_blank" rel="noopener noreferrer"                >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
+              <a
+                href="#"
+                id="link"
+                class="btn btn-primary anime-link-7"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
               ></a>
             </div>
           </div>
@@ -267,7 +335,13 @@
             <div class="card-body">
               <h5 class="card-title title-8">Card title</h5>
               <p class="card-text released-date-8"></p>
-              <a href="#" id="link" class="btn btn-primary anime-link-8" target="_blank" rel="noopener noreferrer"                >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
+              <a
+                href="#"
+                id="link"
+                class="btn btn-primary anime-link-8"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
               ></a>
             </div>
           </div>
@@ -283,7 +357,13 @@
             <div class="card-body">
               <h5 class="card-title title-9">Card title</h5>
               <p class="card-text released-date-9"></p>
-              <a href="#" id="link" class="btn btn-primary anime-link-9" target="_blank" rel="noopener noreferrer"                >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
+              <a
+                href="#"
+                id="link"
+                class="btn btn-primary anime-link-9"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
               ></a>
             </div>
           </div>
@@ -299,7 +379,12 @@
             <div class="card-body">
               <h5 class="card-title title-10">Card title</h5>
               <p class="card-text released-date-10"></p>
-              <a href="#" id="link" class="btn btn-primary anime-link-10" target="_blank" rel="noopener noreferrer"
+              <a
+                href="#"
+                id="link"
+                class="btn btn-primary anime-link-10"
+                target="_blank"
+                rel="noopener noreferrer"
                 >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
               ></a>
             </div>
@@ -316,7 +401,12 @@
             <div class="card-body">
               <h5 class="card-title title-11">Card title</h5>
               <p class="card-text released-date-11"></p>
-              <a href="#" id="link" class="btn btn-primary anime-link-11" target="_blank" rel="noopener noreferrer"
+              <a
+                href="#"
+                id="link"
+                class="btn btn-primary anime-link-11"
+                target="_blank"
+                rel="noopener noreferrer"
                 >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
               ></a>
             </div>
@@ -333,7 +423,12 @@
             <div class="card-body">
               <h5 class="card-title title-12">Card title</h5>
               <p class="card-text released-date-12"></p>
-              <a href="#" id="link" class="btn btn-primary anime-link-12" target="_blank" rel="noopener noreferrer"
+              <a
+                href="#"
+                id="link"
+                class="btn btn-primary anime-link-12"
+                target="_blank"
+                rel="noopener noreferrer"
                 >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
               ></a>
             </div>
@@ -350,7 +445,12 @@
             <div class="card-body">
               <h5 class="card-title title-13">Card title</h5>
               <p class="card-text released-date-13"></p>
-              <a href="#" id="link" class="btn btn-primary anime-link-13" target="_blank" rel="noopener noreferrer"
+              <a
+                href="#"
+                id="link"
+                class="btn btn-primary anime-link-13"
+                target="_blank"
+                rel="noopener noreferrer"
                 >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
               ></a>
             </div>
@@ -367,7 +467,12 @@
             <div class="card-body">
               <h5 class="card-title title-14">Card title</h5>
               <p class="card-text released-date-14"></p>
-              <a href="#" id="link" class="btn btn-primary anime-link-14" target="_blank" rel="noopener noreferrer"
+              <a
+                href="#"
+                id="link"
+                class="btn btn-primary anime-link-14"
+                target="_blank"
+                rel="noopener noreferrer"
                 >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
               ></a>
             </div>
@@ -384,7 +489,12 @@
             <div class="card-body">
               <h5 class="card-title title-15">Card title</h5>
               <p class="card-text released-date-15"></p>
-              <a href="#" id="link" class="btn btn-primary anime-link-15" target="_blank" rel="noopener noreferrer"
+              <a
+                href="#"
+                id="link"
+                class="btn btn-primary anime-link-15"
+                target="_blank"
+                rel="noopener noreferrer"
                 >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
               ></a>
             </div>
@@ -401,7 +511,12 @@
             <div class="card-body">
               <h5 class="card-title title-16">Card title</h5>
               <p class="card-text released-date-16"></p>
-              <a href="#" id="link" class="btn btn-primary anime-link-16" target="_blank" rel="noopener noreferrer"
+              <a
+                href="#"
+                id="link"
+                class="btn btn-primary anime-link-16"
+                target="_blank"
+                rel="noopener noreferrer"
                 >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
               ></a>
             </div>
@@ -418,7 +533,12 @@
             <div class="card-body">
               <h5 class="card-title title-17">Card title</h5>
               <p class="card-text released-date-17"></p>
-              <a href="#" id="link" class="btn btn-primary anime-link-17" target="_blank" rel="noopener noreferrer"
+              <a
+                href="#"
+                id="link"
+                class="btn btn-primary anime-link-17"
+                target="_blank"
+                rel="noopener noreferrer"
                 >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
               ></a>
             </div>
@@ -435,7 +555,12 @@
             <div class="card-body">
               <h5 class="card-title title-18">Card title</h5>
               <p class="card-text released-date-18"></p>
-              <a href="#" id="link" class="btn btn-primary anime-link-18" target="_blank" rel="noopener noreferrer"
+              <a
+                href="#"
+                id="link"
+                class="btn btn-primary anime-link-18"
+                target="_blank"
+                rel="noopener noreferrer"
                 >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
               ></a>
             </div>
@@ -452,7 +577,12 @@
             <div class="card-body">
               <h5 class="card-title title-19">Card title</h5>
               <p class="card-text released-date-19"></p>
-              <a href="#" id="link" class="btn btn-primary anime-link-19" target="_blank" rel="noopener noreferrer"
+              <a
+                href="#"
+                id="link"
+                class="btn btn-primary anime-link-19"
+                target="_blank"
+                rel="noopener noreferrer"
                 >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
               ></a>
             </div>
@@ -462,11 +592,19 @@
     </div>
 
     <div class="container" id="page-scroll-bar">
-        <button id="previous" type="button" class="btn btn-outline-primary hidden">Previous</button>
-        <button id="show-page-no" type="button" class="btn btn-info"></button>
-        <button id="next" type="button" class="btn btn-outline-primary">Next</button>
+      <button
+        id="previous"
+        type="button"
+        class="btn btn-outline-primary hidden"
+      >
+        Previous
+      </button>
+      <button id="show-page-no" type="button" class="btn btn-info"></button>
+      <button id="next" type="button" class="btn btn-outline-primary">
+        Next
+      </button>
     </div>
-    
+
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

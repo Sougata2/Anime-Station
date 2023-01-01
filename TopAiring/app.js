@@ -1,7 +1,7 @@
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': 'd615a14e2cmsh37898fcd6929e18p13462ejsn334a6edfc023',
+		'X-RapidAPI-Key': '0f602f195dmshb4ce39bfe95e95ep1e2fd2jsnf97895daa3dd',
 		'X-RapidAPI-Host': 'myanimelist.p.rapidapi.com'
 	}
 };
@@ -56,4 +56,7 @@ fetch('https://myanimelist.p.rapidapi.com/anime/top/airing', options)
             cardBody.appendChild(animeLink)
         }
     })
-	.catch(err => console.error(err));
+	.catch(err => {
+        console.error(err)
+        alert(err.message)
+    });

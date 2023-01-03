@@ -6,11 +6,17 @@ const options = {
 	}
 };
 
+function hideSpinner(){
+    document.querySelector('.cards-container').classList.remove('hidden')
+    document.querySelector('.spinner-container').classList.add('hidden')
+}
+
 fetch('https://myanimelist.p.rapidapi.com/anime/top/upcoming', options)
 	.then(response => response.json())
 	.then(response => {
         
         console.log(response)
+        hideSpinner()
         for (let i = 0; i < response.length; i++){
             // create elements
             const col = document.createElement("div")

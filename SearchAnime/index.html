@@ -87,14 +87,18 @@
         </div>
       </div>
     </nav>
-    <!-- Select Genre -->
+    <!-- Search Anime -->
     <div class="container py-5 input-group mb-3" style="width: 70%;">
       <input id="search-anime" type="text" class="form-control" placeholder="Search Anime" aria-label="Recipient's username" aria-describedby="button-addon2">
-      <button id="search-by-name" class="btn btn-outline-primary" type="button" id="button-addon2"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <button id="search-by-name" class="btn btn-outline-primary hidden" style="border-radius: 0 4px 4px 0;"type="button" id="button-addon2"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <button class="btn btn-primary spinner-container" type="button" disabled>
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        <span class="visually-hidden">Loading...</span>
+      </button>
     </div>
 
     <!-- anime cards -->
-    <div class="container">
+    <div class="container cards-container hidden">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
         <div class="col">
           <div class="card c-0" style="width: 18rem; height: 40rem">
@@ -539,7 +543,7 @@
       </div>
     </div>
 
-    <div class="container" id="page-scroll-bar">
+    <div class="container pagination-container hidden" id="page-scroll-bar">
       <button
         id="previous"
         type="button"

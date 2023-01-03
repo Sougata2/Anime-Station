@@ -12,6 +12,20 @@ const options = {
 	}
 };
 
+function showSpinner(){
+    searchBtn.classList.add('hidden')
+    document.querySelector('.cards-container').classList.add('hidden')
+    document.querySelector('.pagination-container').classList.add('hidden')
+    document.querySelector('.spinner-container').classList.remove('hidden')
+}
+
+function hideSpinner(){
+    searchBtn.classList.remove('hidden')
+    document.querySelector('.cards-container').classList.remove('hidden')
+    document.querySelector('.pagination-container').classList.remove('hidden')
+    document.querySelector('.spinner-container').classList.add('hidden')
+}
+
 function populateCards(response){
     if (!response.length){
         emptyAlert()
@@ -47,12 +61,14 @@ function emptyAlert(){
 }
 
 searchBtn.addEventListener('click', function(){
+    showSpinner()
     pageNumber = 1;
     movieName = document.querySelector('#search-anime').value;
     fetch(`https://gogoanime2.p.rapidapi.com/anime-movies?aph=${movieName}&page=${pageNumber}`, options)
 	.then(response => response.json())
 	.then(response => {
         console.log(response)
+        hideSpinner()
         pageLimiter(pageNumber)
         setPageNumber(pageNumber)
         populateCards(response)
@@ -86,6 +102,7 @@ function pageLimiter(page){
     }
 }
 previousBtn.addEventListener('click', function(event){
+    showSpinner()
     event.preventDefault()
     pageNumber--;
     pageLimiter(pageNumber)
@@ -95,6 +112,7 @@ previousBtn.addEventListener('click', function(event){
 	.then(response => response.json())
 	.then(response => {
         console.log(response)
+        hideSpinner()
         populateCards(response)
     })
 	.catch(err => {
@@ -104,6 +122,7 @@ previousBtn.addEventListener('click', function(event){
     window.scrollTo(0, 0)
 })
 nextBtn.addEventListener('click', function(event){
+    showSpinner()
     event.preventDefault()
     pageNumber++;
     pageLimiter(pageNumber)
@@ -112,6 +131,7 @@ nextBtn.addEventListener('click', function(event){
 	.then(response => response.json())
 	.then(response => {
         console.log(response)
+        hideSpinner()
         populateCards(response)
     })
 	.catch(err => {
@@ -127,6 +147,7 @@ fetch(`https://gogoanime2.p.rapidapi.com/anime-movies?aph=${movieName}&page=${pa
 	.then(response => response.json())
 	.then(response => {
         console.log(response)
+        hideSpinner()
         pageLimiter(pageNumber)
         setPageNumber(pageNumber)
         populateCards(response)

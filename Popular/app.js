@@ -10,6 +10,18 @@ const options = {
 	}
 };
 
+function showSpinner(){
+    document.querySelector('.cards-container').classList.add('hidden')
+    document.querySelector('.pagination-container').classList.add('hidden')
+    document.querySelector('.spinner-container').classList.remove('hidden')
+}
+
+function hideSpinner(){
+    document.querySelector('.cards-container').classList.remove('hidden')
+    document.querySelector('.pagination-container').classList.remove('hidden')
+    document.querySelector('.spinner-container').classList.add('hidden')
+}
+
 function pageLimiter(page){
     if (page < 2){
         previousBtn.classList.add('hidden')
@@ -32,6 +44,7 @@ function setPageNumber(page){
     document.querySelector('#show-page-no').textContent = page;
 }
 previousBtn.addEventListener('click', function(event){
+    showSpinner()
     event.preventDefault()
     pageNumber--;
     pageLimiter(pageNumber)
@@ -40,6 +53,7 @@ previousBtn.addEventListener('click', function(event){
 	.then(response => response.json())
 	.then(response => {
         console.log(response)
+        hideSpinner()
         for (let i = 0 ; i < response.length; i++){
             // populating the image
             document.querySelector(`.img-${i}`).src = response[i].animeImg
@@ -56,6 +70,7 @@ previousBtn.addEventListener('click', function(event){
     window.scrollTo(0, 0)
 })
 nextBtn.addEventListener('click', function(event){
+    showSpinner()
     event.preventDefault()
     pageNumber++;
     pageLimiter(pageNumber)
@@ -64,6 +79,7 @@ nextBtn.addEventListener('click', function(event){
 	.then(response => response.json())
 	.then(response => {
         console.log(response)
+        hideSpinner()
         for (let i = 0 ; i < response.length; i++){
             // populating the image
             document.querySelector(`.img-${i}`).src = response[i].animeImg
@@ -86,6 +102,7 @@ fetch(`https://gogoanime2.p.rapidapi.com/popular?page=${pageNumber}`, options)
 	.then(response => response.json())
 	.then(response => {
         console.log(response)
+        hideSpinner()
         pageLimiter(pageNumber)
         setPageNumber(pageNumber)
         for (let i = 0 ; i < response.length; i++){

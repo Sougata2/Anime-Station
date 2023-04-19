@@ -23,7 +23,8 @@ const hideLoader = function () {
 // Making card for every anime object.
 const makeCard = function (result) {
   console.log(result);
-  const { image, title, episodeNumber, url } = result;
+  const { image, title, episodeNumber, url, genres } = result;
+  const genreString = genres.join(" - ");
   const cardHtml = `
     <div class="col">
     <div class="card mx-auto" style="width: 18rem; height: 40rem">
@@ -34,8 +35,8 @@ const makeCard = function (result) {
         alt="..."
     />
     <div class="card-body">
-        <h5 class="card-title title-0">${title}</h5>
-        <p class="card-text ep-no-0">Episode No: ${episodeNumber}</p>
+        <h5 class="card-title">${title}</h5>
+        <p class="card-text"> Genres: <span style="color: grey; margin-left: 10px">${genreString}</span></p>
         <a href="${url}" id="link" class="btn btn-primary ep-link-0" target="_blank" rel="noopener noreferrer"
         >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
         ></a>
@@ -86,7 +87,7 @@ const getResponse = function (response) {
 // Fetching API
 const getApiData = function () {
   showLoader();
-  const url = "https://api.consumet.org/anime/gogoanime/recent-episodes";
+  const url = "https://api.consumet.org/anime/gogoanime/top-airing";
   axios.get(url, { params: { page: currPage, type: 1 } }).then(getResponse);
 };
 

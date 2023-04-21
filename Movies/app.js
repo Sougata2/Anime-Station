@@ -48,7 +48,7 @@ const makeCard = function (result) {
     <div class="card-body">
         <h5 class="card-title title-0">${title}</h5>
         <p class="card-text ">${releaseDate == "NaN" ? "--" : releaseDate}</p>
-        <p class="card-text ">Rating: ${rating}</p>
+        <p class="card-text ">Rating: ${rating.toFixed(1)}</p>
         <p class="card-text ">Type: ${type}</p>
         <p class="card-text ">ID: ${id}</p>
     </div>

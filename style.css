@@ -3,11 +3,25 @@
 }
 .card {
   font-family: "Ubuntu", sans-serif;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px,
+    rgba(0, 0, 0, 0.05) 0px 5px 10px;
 }
-.card-title{
+.card-title {
   height: 3rem;
   overflow-y: scroll;
+}
+.fa-plus {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  padding: 0.6rem 0.7rem;
+  border-radius: 90%;
+  color: rgb(151, 150, 150);
+  transition: 0.5s;
+}
+.fa-plus:hover{
+  background-color: rgb(205, 199, 199);
+  color: white;
 }
 
 #link {
@@ -33,4 +47,21 @@
 }
 .hidden {
   display: none;
+}
+
+.fa-trash{
+  position: absolute;
+  right: 1rem;
+  bottom: 1.6rem;
+  font-size: 1.3rem;
+  color: #f40b3a;
+}
+.fa-trash:hover{
+  color: #ef758d;
+}
+.alert-success{
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  font-family: "Ubuntu", sans-serif;
 }

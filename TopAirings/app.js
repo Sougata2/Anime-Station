@@ -22,7 +22,7 @@ const hideLoader = function () {
 
 // Making card for every anime object.
 const makeCard = function (result) {
-  console.log(result);
+  // console.log(result);
   const { image, title, episodeNumber, url, genres } = result;
   const genreString = genres.join(" - ");
   const cardHtml = `
@@ -40,7 +40,7 @@ const makeCard = function (result) {
         <a href="${url}" id="link" class="btn btn-primary ep-link-0" target="_blank" rel="noopener noreferrer"
         >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
         ></a>
-
+        <i class="fa fa-solid fa-plus"></i>
     </div>
     </div>
     </div>
@@ -77,7 +77,7 @@ const goToPrevPage = function () {
 /*************************************API function*************************************/
 // Getting Api response;
 const getResponse = function (response) {
-  console.log(response.data);
+  // console.log(response.data);
   const { data } = response;
   const { hasNextPage, results } = data;
   makePage(results, hasNextPage);

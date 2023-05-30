@@ -31,7 +31,7 @@ const makeCard = function (result) {
           <a href="${url}" id="link" class="btn btn-primary ep-link-0" target="_blank" rel="noopener noreferrer"
           >Know More <i class="fa-solid fa-arrow-up-right-from-square"></i
           ></a>
-
+          <i class="fa fa-solid fa-plus"></i>
       </div>
       </div>
       </div>

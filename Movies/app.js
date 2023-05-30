@@ -51,6 +51,7 @@ const makeCard = function (result) {
         <p class="card-text ">Rating: ${rating.toFixed(1)}</p>
         <p class="card-text ">Type: ${type}</p>
         <p class="card-text ">ID: ${id}</p>
+        <i class="fa fa-solid fa-plus"></i>
     </div>
     </div>
     </div>
@@ -89,7 +90,7 @@ const goToPrevPage = function () {
 /*************************************API function*************************************/
 // Getting Api response;
 const getResponse = function (response) {
-  console.log(response);
+  // console.log(response);
   const { data } = response;
   const { hasNextPage, results } = data;
   if (results.length === 0) {

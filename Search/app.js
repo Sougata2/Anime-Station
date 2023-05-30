@@ -52,7 +52,7 @@ const makeCard = function (result) {
         <a href="${url}" id="link" class="btn btn-primary ep-link-0" target="_blank" rel="noopener noreferrer"
         >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
         ></a>
-
+        <i class="fa fa-solid fa-plus"></i>
     </div>
     </div>
     </div>
@@ -91,7 +91,7 @@ const goToPrevPage = function () {
 /*************************************API function*************************************/
 // Getting Api response;
 const getResponse = function (response) {
-  console.log(response);
+  // console.log(response);
   const { data } = response;
   const { hasNextPage, results } = data;
   if (results.length === 0) {

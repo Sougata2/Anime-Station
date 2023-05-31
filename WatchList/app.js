@@ -4,6 +4,8 @@ import {
   getDocs,
   doc,
   deleteDoc,
+  query,
+  orderBy
 } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
 import { hideLoader, showLoader } from "../loader.js";
 
@@ -15,21 +17,21 @@ const cardRowEl = document.querySelector("#card-row");
 const makeCard = function (image, title, link) {
   return `
   <div class="col">
-  <div class="card mx-auto" style="width: 18rem; height: 30rem">
-  <img
-      src="${image}"
-      class="card-img-top img-0"
-      style="width: 100%; height: 20rem"
-      alt="..."
-  />
-  <div class="card-body">
-      <h5 class="card-title title-0">${title}</h5>
-      ${link === '' ? '': `<a href="${link}" id="link" class="btn btn-primary ep-link-0" target="_blank" rel="noopener noreferrer"
-      >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i
-      ></a>`}
-      <i class="fa-solid fa-trash"></i>
-  </div>
-  </div>
+    <div class="horizontal-card card mx-auto">
+      <div class="horizontal-card-img">
+      <img src="${image}" alt="..." class="" />
+      </div>
+      <div class="horizontal-card-body">
+        <div class="horizontal-card-text card-title">${title}</div>
+        ${
+          link === ""
+            ? ""
+            : `<a href="${link}" class="btn btn-primary horizontal-card-button" target="_blank" rel="noopener noreferrer"
+            >Watch Now <i class="fa-solid fa-arrow-up-right-from-square"></i></a>`
+        }
+        <i class="fa-solid fa-trash"></i>
+      </div>
+    </div>
   </div>
     `;
 };
@@ -46,17 +48,20 @@ const emptyListScreen = function () {
   `;
 };
 const getFromDB = async function () {
-  const querySnapshot = await getDocs(collection(db, "WatchList"));
+  const docRef = collection(db, "WatchList");
+  const q = query(docRef, orderBy("timeStamp"));
+  const querySnapshot = await getDocs(q);
   cardRowEl.innerHTML = "";
   if (querySnapshot.empty) {
-    cardRowEl.insertAdjacentHTML("beforeend", emptyListScreen());
+    cardRowEl.insertAdjacentHTML("afterbegin", emptyListScreen());
     hideLoader();
     return;
   }
   querySnapshot.forEach((doc) => {
     const { imageLink, title, link } = doc.data();
+    console.log(link);
 
-    cardRowEl.insertAdjacentHTML("beforeend", makeCard(imageLink, title, link));
+    cardRowEl.insertAdjacentHTML("afterbegin", makeCard(imageLink, title, link));
   });
   hideLoader();
 };
@@ -66,6 +71,7 @@ const deleteFromDB = async function (e) {
   showLoader();
   const cardEl = e.target.closest(".card");
   const title = cardEl.querySelector(".card-title").textContent;
+
   await deleteDoc(doc(db, "WatchList", title));
   getFromDB();
   hideLoader();

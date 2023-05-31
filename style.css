@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
 .col {
   margin: 2rem auto;
 }
@@ -19,7 +20,7 @@
   color: rgb(151, 150, 150);
   transition: 0.5s;
 }
-.fa-plus:hover{
+.fa-plus:hover {
   background-color: rgb(205, 199, 199);
   color: white;
 }
@@ -49,19 +50,56 @@
   display: none;
 }
 
-.fa-trash{
-  position: absolute;
-  right: 1rem;
-  bottom: 1.6rem;
-  font-size: 1.3rem;
-  color: #f40b3a;
-}
-.fa-trash:hover{
-  color: #ef758d;
-}
-.alert-success{
+.alert-success {
   position: sticky;
   top: 0;
   z-index: 100;
   font-family: "Ubuntu", sans-serif;
+}
+/* Horizontal-Cards */
+.horizontal-card {
+  position: relative;
+  display: grid;
+  row-gap: 50px;
+  grid-template-columns: auto auto auto auto;
+  font-family: "Ubuntu", sans-serif;
+  border-radius: 10px;
+  max-height: 200px;
+  max-width: 450px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px,
+  rgba(0, 0, 0, 0.05) 0px 5px 10px;
+}
+.horizontal-card-img {
+  display: inline-block;
+  height: 200px;
+  width: 160px;
+  padding-bottom: 1px;
+}
+.horizontal-card-img img {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px 0 0 10px;
+}
+.horizontal-card-text {
+  margin: 1rem 0.5rem 1rem 1rem;
+  height: 100px;
+  overflow: hidden;
+  overflow-y: scroll;
+  font-size: 1.2rem;
+}
+.horizontal-card-button {
+  position: relative;
+  left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.fa-trash {
+  position: absolute;
+  right: 2rem;
+  bottom: 2.4rem;
+
+  color: #f40b3a;
+}
+.fa-trash:hover {
+  color: #ef758d;
 }

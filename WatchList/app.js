@@ -59,8 +59,6 @@ const getFromDB = async function () {
   }
   querySnapshot.forEach((doc) => {
     const { imageLink, title, link } = doc.data();
-    console.log(link);
-
     cardRowEl.insertAdjacentHTML("afterbegin", makeCard(imageLink, title, link));
   });
   hideLoader();

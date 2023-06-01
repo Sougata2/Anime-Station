@@ -5,8 +5,9 @@ import {
   getFirestore,
   collection,
   setDoc,
-  getDocs,
   doc,
+  getDoc,
+  query,
 } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -41,7 +42,7 @@ const notifyOnAdd = function () {
     "beforeBegin",
     `
   <div class="alert alert-success d-flex align-items-center" role="alert">
-    <i class="fa fa-solid fa-circle-check"></i>
+    <i class="fa fa-solid fa-circle-check me-1"></i>
     <div>
       Added To Watch List
     </div>
@@ -50,21 +51,51 @@ const notifyOnAdd = function () {
   );
   setTimeout(() => {
     document.querySelector(".alert-success").remove();
-  }, 2000);
+  }, 3000);
 };
-const addToList = async function (e) {
+
+const notifyIfExists = function () {
+  const html = `
+  <div class="alert alert-danger d-flex align-items-center" role="alert">
+    <i class="fa-solid fa-triangle-exclamation me-1"></i>
+      <div>
+        Anime already in Watch List.
+      </div>
+  </div>
+  `;
+  cardsContainerEl.insertAdjacentHTML("beforebegin", html);
+  setTimeout(() => {
+    document.querySelector(".alert-danger").remove();
+  }, 3000);
+};
+
+const isPresent = async function (title) {
+  const docRef = doc(db, "WatchList", title);
+  const docSnap = await getDoc(docRef);
+  return docSnap.exists();
+};
+
+const getCardInfo = function (e) {
   if (!e.target.classList.contains("fa-plus")) return;
   const cardEl = e.target.closest(".card");
   const imgLink = cardEl.querySelector(".card-img-top")?.src;
   const title = cardEl.querySelector(".card-title")?.textContent;
   const link = cardEl.querySelector("#link")?.href;
   const timeStamp = new Date();
-
+  isPresent(title).then(async (res) => {
+    if (!res) {
+      addToList(imgLink, title, link, timeStamp);
+    } else {
+      notifyIfExists();
+    }
+  });
+};
+const addToList = async function (imgLink, title, link, timeStamp) {
   try {
     await setDoc(doc(db, "WatchList", title), {
       imageLink: imgLink,
       title: title,
-      link: link ? link: '',
+      link: link ? link : "",
       timeStamp: timeStamp,
     });
     notifyOnAdd();
@@ -76,4 +107,4 @@ const addToList = async function (e) {
 /////////////////////////
 //////Event Listener////
 ///////////////////////
-cardsContainerEl.addEventListener("click", addToList);
+cardsContainerEl.addEventListener("click", getCardInfo);
